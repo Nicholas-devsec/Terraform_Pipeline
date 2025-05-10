@@ -1,0 +1,13 @@
+terraform.tfstate
+
+
+terraform.tfvars
+
+
+public-instance.pem
+
+.terraform/
+
+*.tfstate.backup      
+
+crash.log
