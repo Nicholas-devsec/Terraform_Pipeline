@@ -54,6 +54,32 @@ Slack messages include:
 
 ---
 
+## 🔄 Workflow Structure
+
+This project uses a two-stage GitHub Actions pipeline:
+
+#### 🧪 1. CI Workflow (on push)
+- Triggers automatically on every push to `main`/`master`
+- Runs `tfsec` static analysis on Terraform code
+- Fails pipeline if any **HIGH** or **CRITICAL** vulnerabilities are found
+- Uploads scan results as an artifact
+- Sends a Slack notification with the scan status and commit info
+
+#### 🚀 2. Manual Apply Workflow (`manual-apply.yml`)
+- Triggered manually via the **Actions** tab using `workflow_dispatch`
+- Runs:
+  - `terraform init`
+  - `terraform validate`
+  - `terraform plan -out=tfplan`
+  - `terraform apply tfplan`
+- Only executed when the infrastructure code is reviewed and approved
+- Keeps infrastructure deployment under human control for safety
+
+> ✅ This split ensures security checks happen automatically while infrastructure deployment remains a deliberate, secure step.
+
+
+---
+
 ## 🛠️ Usage
 
 ### 1. Clone the Repository
@@ -64,6 +90,10 @@ cd Terraform_Pipeline
 ```
 
 ### 2. Initialize and apply the Terraform configuration
+
+#### Note:
+- Must change backend configuration to your HCP backend organization and workplace or your backend of choice
+- Must also provide Aws IAM creds as environment variables as well as HCP token 
 
 ```bash
 terraform init
