@@ -143,6 +143,7 @@ Below is an example of the Slack alert triggered by the GitHub Actions workflow.
 
 ---
 
+
 ## 🔚 Final Thoughts
 
 This project demonstrates foundational DevSecOps principles:
