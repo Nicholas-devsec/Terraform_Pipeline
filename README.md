@@ -135,6 +135,14 @@ The following diagram was created using [draw.io](https://draw.io) to visualize 
 
 ---
 
+### 📩 Slack Notification Example
+
+Below is an example of the Slack alert triggered by the GitHub Actions workflow. It provides real-time visibility into the status of each infrastructure scan:
+
+![Slack Notification](photos/slack.jpeg)
+
+---
+
 ## 🔚 Final Thoughts
 
 This project demonstrates foundational DevSecOps principles:
