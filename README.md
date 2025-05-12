@@ -131,7 +131,7 @@ This project uses a **Terraform Cloud backend** (`hcp`) for remote state managem
 
 The following diagram was created using [draw.io](https://draw.io) to visualize the infrastructure setup:
 
-![AWS Architecture Diagram](architecture-diagram.png)
+![AWS Architecture Diagram](photos/architecture-diagram.png)
 
 ---
 
