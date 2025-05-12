@@ -26,7 +26,7 @@ jobs:
 
       - name: fail pipeline if major vulnerabilites are found
         run: |
-          if jq -e '.results[] | select(.severity == "HIGH" or .severity == "CRITICAL")' iac-scan.json > /dev/null; then
+          if jq -e '.results | map(select(.severity == "HIGH" or .severity == "CRITICAL") | length > 0' iac-scan.terraform > dev/null; then
           echo "Vulnerabilites were found, stopping the pipeline"
           exit 1
           else
