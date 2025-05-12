@@ -22,7 +22,7 @@ jobs:
 
       - name: run tfsec scan
         run: |
-          tfsec . --format json --out iac-scan.json
+          tfsec . --format json --out iac-scan.json || true
 
       - name: fail pipeline if major vulnerabilites are found
         run: |
